@@ -63,8 +63,8 @@ function M.check()
     M.start('conflicts')
     M.plugin('headlines')
     M.plugin('markview')
-    M.plugin('obsidian', function(obsidian)
-        if obsidian.get_client().opts.ui.enable == false then
+    M.plugin('obsidian', function(_)
+        if vim.tbl_get(_G.Obsidian, 'opts', 'ui', 'enable') == false then
             return nil
         else
             return {
